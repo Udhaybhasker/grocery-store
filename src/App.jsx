@@ -6,11 +6,11 @@ import PropTypes from 'prop-types'
 function Header({ darkMode, toggleDarkMode, cartLength, setShowCart, searchTerm, setSearchTerm }) {
   return (
     <header className="border-b dark:border-gray-700">
-      <div className="container mx-auto px-4 py-4 flex items-center justify-between">
+      <div className="container mx-auto px-4 py-4 flex flex-col md:flex-row items-center justify-between">
         <div className="flex items-center space-x-4">
           <h1 className="text-3xl font-bold text-green-600 dark:text-green-400">Grocery Store</h1>
         </div>
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-4 mt-4 md:mt-0">
           <div className="relative">
             <input
               type="text"
@@ -116,7 +116,7 @@ function ProductGrid({ title, items, visibleItems, loadMore, showLess, renderPro
   return (
     <section className="mb-8">
       <h2 className="text-2xl font-bold mb-4 dark:text-white">{title}</h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {items.slice(0, visibleItems).map((item) => renderProductItem(item))}
       </div>
       <div className="text-center mt-4">
@@ -154,7 +154,7 @@ function Cart({ showCart, setShowCart, cart, removeFromCart, getTotalAmount, pro
   return (
     showCart && (
       <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-        <div className="bg-white dark:bg-gray-800 p-8 rounded-lg max-w-md w-full">
+        <div className="bg-white dark:bg-gray-800 p-8 rounded-lg max-w-md w-full mx-4">
           <div className="flex justify-between items-center mb-4">
             <h2 className="text-2xl font-bold dark:text-white">My Cart</h2>
             <button 
